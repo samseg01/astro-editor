@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    /* display: flex; */
+    overflow: hidden;
+}
+header {
+    width: 100%;
+    min-height: 37px;
+}
+main {
+    height: 100%;
+    width: 100%;
+    display: flex; 
+}
+#lateral-menu {
+    background-color: rgba(0, 0, 0, 0.048);
+    height: 100%;
+    width: 3.5%;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+    padding: 2% 0 0 0;
+}
+#explore {
+    width: 20px;
+    height: 20px;
+}
+#menu-explorator {
+    position: relative;
+    background-color: rgba(178, 178, 178, 0.183);
+    border-left: 2px solid rgba(0, 0, 0, 0.053);
+    width: 30%;
+    min-width: 200px;
+    height: 100%;
+    /* resize: horizontal; */
+    .head-menu {
+        background-color: aliceblue;
+        min-height: 30px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        #new-document {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+    }
+    #arquivo-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        gap: 2px;
+        /* overflow-x: hidden;
+        overflow-y: scroll; */
+
+        .arquivo {
+            width: 100%;
+            height: 32px;
+            background-color: black;
+            cursor: pointer;
+            color: azure;
+        }
+    }
+}
+.oculta {
+    display: none;
+}
+hr {
+    /* color: aliceblue; */
+    border: none;
+    width: 7px;
+    position: relative;
+    left: 0%;
+}
+hr:hover {
+    cursor: e-resize;
+}
+#editor-section {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 255, 255, 0.452);
+}
+.view-class {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .class-star {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        background-color: azure;
+    }
+}
+
+#editor {
+    width: 100%;
+    height: 100%;
+    padding: 15px 0 0 15px;
+    overflow: auto;
+    
+    resize: none;
+    border: none;
+    /* margin: none; */
+    outline : none;
+    /* outline-offset: none; */
+}
+
+#option-view {
+    position: absolute;
+    display: flex;
+    bottom: 0px;
+    right: 5%;
+    z-index: 100px;
+    width: 40px;
+    height: 20px;
+    #text, #star {
+        width: 20px;
+        height: 20px;
+    }
+    #text {
+        background-color: wheat;
+        border-radius: 2px 0 0 0;
+    }
+    #star {
+        background-color: rgb(63, 62, 62);
+        border-radius: 0 2px 0 0;
+    }
+
+}
