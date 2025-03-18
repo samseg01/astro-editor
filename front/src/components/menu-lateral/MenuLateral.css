@@ -1,0 +1,57 @@
+#menu-explorator {
+    /* position: relative; */
+    background-color: rgba(178, 178, 178, 0.183);
+    border-left: 2px solid rgba(0, 0, 0, 0.053);
+    /* width: ; */
+    width: 300px;
+    height: 100%;
+    /* resize: horizontal; */
+    .head-menu {
+        background-color: aliceblue;
+        min-height: 30px;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        #new-document {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+    }
+    #arquivo-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        padding: 5px;
+        gap: 2px;
+        /* overflow-x: hidden;
+        overflow-y: scroll; */
+
+        .arquivo {
+            user-select: none;
+            width: 100%;
+            height: 32px;
+            background-color: black;
+            cursor: pointer;
+            color: azure;
+        }
+    }
+}
+.oculta {
+    display: none;
+}
+#delimitador {
+    /* color: aliceblue; */
+    border: none;
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    left: 100%;
+    z-index: 10;
+}
+#delimitador:hover {
+    cursor: e-resize;
+    background-color: aqua;
+}

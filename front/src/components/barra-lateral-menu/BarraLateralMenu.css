@@ -1,0 +1,14 @@
+.barra-lateral-menu {
+    background-color: rgba(0, 0, 0, 0.473);
+    height: 100%;
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+    display: flex;
+    justify-content: center;
+    padding: 2% 0 0 0;
+    .explore {
+        width: 20px;
+        height: 20px;
+    }
+}
