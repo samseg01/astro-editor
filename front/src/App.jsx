@@ -1,14 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
-import BarraLateralMenu from './components/barra-lateral-menu/BarraLateralMenu'
 import MenuLateral from './components/menu-lateral/MenuLateral'
+import EditorSection from './components/editor-section/EditorSection'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  
+
   return (
     <div className="editor">
-      <BarraLateralMenu></BarraLateralMenu>
       <MenuLateral></MenuLateral>
+      {/* <EditorSection></EditorSection> */}
     </div>
   )
 }

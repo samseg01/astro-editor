@@ -1,21 +1,25 @@
 import { useState } from 'react'
 import './MenuLateral.css'
+import HeaderMenuLateral from './HeaderMenuLateral'
+import FilesContainer from './files-container/FilesContainer';
 
 function MenuLateral() {
-    useState
+
+    const [arquivos, setArquivos] = useState([])
+
+    async function directory() {
+        const filePath = await window.electronAPI.openDirectory();
+        if (filePath) {
+            setArquivos(filePath)
+        }
+    };
+
     return (
-        <section id="menu-explorator">
-            <div className="content-menu">
-                <div className="head-menu">
-                    <input type="file" name="new-document" id="new-document" onchange="handleFile(this.files)"/>
-                    <button id="new-document">+</button>
-                </div>
-                <div id="arquivo-container">
-                </div>
-            </div>
-            <div id="delimitador"></div>
+        <section className='menu-lateral'>
+            <HeaderMenuLateral openDirectory={directory}/>
+            <FilesContainer files={ arquivos }/>
         </section>
-    )
+    );
 }
 
 export default MenuLateral

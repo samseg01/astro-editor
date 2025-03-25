@@ -33,22 +33,6 @@ function verificaVision(cond) {
 
 const containerDoc = document.getElementById('arquivo-container')
 
-document.getElementById('new-document').addEventListener('click', ()=>{
-    criaDoc('aaaa')
-})
-
-function criaDoc(title) {
-    let arquivoDiv = document.createElement('div')
-    arquivoDiv.innerText = title
-    arquivoDiv.setAttribute('class', 'arquivo')
-    containerDoc.appendChild(arquivoDiv)
-    
-    let classDiv = document.createElement('div')
-    classDiv.innerText = title
-    classDiv.setAttribute('class', 'class-star')
-    starArea.appendChild(classDiv)
-    
-}
 
 window.addEventListener('DOMContentLoaded', ()=>{
     // criaDoc('Master');

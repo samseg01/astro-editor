@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/star.css">
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <section id="lateral-menu">
+            <button id="explore"></button>
+        </section>
+        <section id="menu-explorator">
+            <div class="content-menu">
+                <div class="head-menu">
+                    <input type="file" name="new-document" id="new-document" onchange="handleFile(this.files)">
+                </div>
+                <div id="arquivo-container">
+                </div>
+            </div>
+            <div id="delimitador"></div>
+        </section>
+        <section id="editor-section">
+            <div class="editor-container">
+                <div class="aba-paginas">
+                    <!-- <div class="item">
+                        <p>index.js</p>
+                        <button onclick="fechaAba()">x</button>
+                    </div> -->
+                </div>
+                <div id="editor-content">
+                    <!-- <textarea name="editor" class="editor"></textarea> -->
+                </div>
+            </div>
+            <section class="view-class oculta"></section>
+        </section>
+        <section id="option-view">
+            <div id="text"></div>
+            <div id="star"></div>
+
+        </section>
+    </main>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/redmencionaDirecMenu.js"></script>
+    <script src="assets/js/folhaDeArquivo.js"></script>
+    <script src="assets/js/formataTexto.js"></script>
+</body>
+</html>
