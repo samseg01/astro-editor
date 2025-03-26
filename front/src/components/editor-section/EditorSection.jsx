@@ -1,9 +1,14 @@
+import ContainerAbaArquivos from './ContainerAbaArquivos'
 import './EditorSection.css'
 
 function EditorSection() {
+    
     return(
         <section className='sectionText'>
-            <textarea name="" id="editor"></textarea>
+            <ContainerAbaArquivos/>
+            <textarea name="" id="editor">
+
+            </textarea>
         </section>
     )
 }

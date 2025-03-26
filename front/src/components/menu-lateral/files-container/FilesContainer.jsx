@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../MenuLateral.css'
 import FileDoc from '../../doc-system/FileDoc'
 import Path from '../../doc-system/Path'
+import OpenFile from '../../../utils'
 
 function FilesContainer({ files }) {
 
@@ -12,10 +13,19 @@ function FilesContainer({ files }) {
 
     function renderLista(elem, id) {
         if(elem.type == 'dir') {
-            return <Path chave={id} fileName={elem.nome} filhos={elem.filhos}/>
-        }
+            return <Path 
+                    chave={id} 
+                    fileName={elem.nome} 
+                    filhos={elem.filhos}
 
-        return <FileDoc fileName={elem.nome}/>   
+                    />
+        }
+        return <FileDoc 
+                fileName={elem.nome} 
+                chave={id} 
+                caminho={elem.caminho}
+                click={()=>OpenFile(elem.caminho)}
+                />   
     }
 
     return (

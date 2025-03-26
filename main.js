@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
-const fs = require('fs').promises;
+const fsA = require('fs').promises;
+const fs = require('fs');
 const path = require('path');
 
 
@@ -25,14 +26,14 @@ ipcMain.handle('open-file', async ()=> {
 async function buscaFiles(fileUrl) {
   let arquivos = []
   try {
-    const files = await fs.readdir(fileUrl); // Correção: chamada correta
+    const files = await fsA.readdir(fileUrl); // Correção: chamada correta
     if(files.length > 0) {
       for(let i=0; i<files.length; i++) {
         if(files[i].includes('.')) {
           let obj = {
             nome : files[i],
             type : 'file',
-            isClick : false
+            caminho : fileUrl+'\\'+files[i]
           }
           arquivos.push(obj)
         } else {
@@ -40,7 +41,7 @@ async function buscaFiles(fileUrl) {
             nome : files[i],
             type : 'dir',
             filhos : await buscaFiles(fileUrl+'//'+files[i]),
-            isClick : false
+            caminho : fileUrl+'//'+files[i]
           }
           arquivos.push(obj)
         } 
@@ -58,9 +59,19 @@ ipcMain.handle('open-directory', async () => {
   const { canceled, filePaths } = await dialog.showOpenDialog({ properties: ['openDirectory'] });
 
   if (!canceled && filePaths.length > 0) {  
+
     return await buscaFiles(filePaths[0]);
   }
 });
 
+ipcMain.handle('ler-arquivo', async (event, caminhoAbsoluto) => {
+  try {
+    const conteudo = fs.readFileSync(caminhoAbsoluto, 'utf8');
+    return conteudo;
+  } catch (erro) {
+    console.error('Erro ao ler o arquivo:', erro);
+    return null;
+  }
+});
 
 app.whenReady().then(createWindow);

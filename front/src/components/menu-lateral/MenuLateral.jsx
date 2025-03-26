@@ -4,7 +4,6 @@ import HeaderMenuLateral from './HeaderMenuLateral'
 import FilesContainer from './files-container/FilesContainer';
 
 function MenuLateral() {
-
     const [arquivos, setArquivos] = useState([])
 
     async function directory() {

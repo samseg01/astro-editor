@@ -1,5 +1,16 @@
-/* .sectionText, #editor {
+.sectionText, #editor {
     height: 100%;
     width: 100%;
-    background-color: beige;
-} */
+    resize: none;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+#editor {
+    padding: 15px;
+    background-color: rgb(241, 241, 231);
+}
+
+.header-aba {
+    height: 25px;
+    display: flex;
+}

@@ -1,0 +1,16 @@
+ul li {
+    margin: 0;
+    padding: 0;
+}
+.aba-arquivo {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 30px;
+    height: 100%;
+    border: 1px solid black;
+
+    bottom {
+        height: 100%;
+    }
+}

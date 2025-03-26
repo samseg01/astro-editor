@@ -1,14 +1,14 @@
 import "./Doc.css"
 
-function FileDoc({ fileName, click, chave }) {
-    // isClick ? 'file-item on-click' : 'file-item off-click'
-    return <li
+function FileDoc({ fileName, chave, caminho, click }) {
+    return  <li
             id={chave}
-            // key={chave} 
-            docName={ fileName } 
-            onClick={()=>click()} 
+            key={chave} 
+            url={caminho}
+            onClick={click} 
             className='file-item off-click'
-            >{fileName}</li>
+            >{fileName}
+            </li>
 }
 
 export default FileDoc

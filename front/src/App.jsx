@@ -5,12 +5,10 @@ import EditorSection from './components/editor-section/EditorSection'
 
 function App() {
 
-  
-
   return (
     <div className="editor">
       <MenuLateral></MenuLateral>
-      {/* <EditorSection></EditorSection> */}
+      <EditorSection></EditorSection>
     </div>
   )
 }

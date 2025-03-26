@@ -1,37 +1,47 @@
+import OpenFile from '../../utils'
 import './Doc.css'
 import FileDoc from './FileDoc'
+import { useState } from 'react'
 
 function Path({ fileName, filhos, chave }) {
+    const [isClick, setClick] = useState(true)
 
-    function renderLista(elem) {
-        if(elem.type == 'file') {
-            return <FileDoc fileName={elem.nome}/>   
+    function renderLista(elem, id) {
+        if(elem.type == 'dir') {
+            return <Path chave={id} 
+                    fileName={elem.nome} 
+                    filhos={elem.filhos}
+                    />
         }
+        return <FileDoc fileName={elem.nome} caminho={elem.caminho} click={()=>OpenFile(elem.caminho)}/>   
 
     }
-    function clickPath(elemi) {
-        console.log(elemi)
-        
-        let elem = document.getElementById(elemi)
-        let elementosIrmão = elem.parentNode.children
+    function clickPath(onClick, id) {
+        let elem = document.getElementById(id)
+        let filhos = elem.childNodes
 
-        for(let i=0; i<elementosIrmão.length; i++) {
-            console.log(elementosIrmão[i])
-
-            if(i>0 && window.getComputedStyle(elementosIrmão[i]).display == 'block') {
-                elementosIrmão[i].style.display = 'none'
-            }else {
-                elementosIrmão[i].style.display = 'block'
+        filhos.forEach((e, i)=> {
+            if(i > 0) {
+                if(onClick == false) {
+                    e.style.display = 'none'
+                }else {
+                    e.style.display = 'block'
+                }
             }
-        }
-
+            console.log(e, i)
+        })
+        setClick(!onClick)
     }
 
     return(
         <ul className='dir-item' id={chave}>
-            <FileDoc fileName={`> ${fileName}`} click={()=>clickPath(chave+'li')} chave={chave+'li'}/>
+            <FileDoc
+            fileName={`> ${fileName}`} 
+            click={()=>clickPath(isClick, chave)} 
+            chave={chave+'li0'}
+            />
             {filhos.map((file, i)=>(
-                renderLista(file)
+                renderLista(file, i+file.nome)
             ))}
         </ul>
     )
